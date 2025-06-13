@@ -1,11 +1,12 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        counts = [[]] * len(nums)
-        counter = defaultdict(0)
+        counts = [ [] for _ in range(len(nums)) ]
+        counter = defaultdict(int)
         for v in nums:
             counter[v] += 1
-        for k,v in couter.items():
-            counts[v].append(v)
+        for key,value in counter.items():
+            counts[value -1].append(key)
         result = []
         for l in counts[::-1]:
-            
+            result.extend(l)
+        return result[:k]
